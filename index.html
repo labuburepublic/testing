@@ -1,0 +1,129 @@
+Isn’t the result amazing ✌️ 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>OTP VERIFIER </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1> OTP Verification </h1>
+      <h4>Enter the 4 digit OTP sent to your email</h4>
+      <div class="span_box">
+        <span>N</span>
+        <span>I</span>
+        <span>C</span>
+        <span>E</span>
+      </div>
+      <div class="buttons">
+        <button class="verify">Verify OTP</button>
+        <button class="reset">Reset</button>
+      </div>
+     <p> <input type="checkbox">OTP verified successfully!</p>
+    </div>
+  </body>
+</html>
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #7E97A8;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background: #A4C2BA;
+  box-shadow: 0 0 20px #D2EAEC 0.1;
+  align-items: center;
+  border: none;
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+h4 {
+  color: white;
+}
+
+.span_box {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+span {
+  color: #fff;
+  margin: 5px;
+  background: transparent;
+  padding: 3px;
+  border: 2px solid #2A9277;
+  border-radius: 15px;
+  padding:  14px;
+}
+
+.verify {
+  background: #D50B0B;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset {
+  padding: 12px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  background: #50AE15;
+  margin: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.verify:hover {
+  background: #900F0F;
+}
+
+.reset:hover {
+  background: #91D069;
+}
+
+input {
+  margin: 5px;
+  padding: 7px;
+  border: none;
+  background: #6CDD61;
+}
+
+input::after {
+  content: " ";
+  background: #55E647;
+}
+
+p {
+  color: #30F725;
+}
