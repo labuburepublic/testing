@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #7E97A8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background: #A4C2BA;
+      box-shadow: 0 0 20px rgba(210, 234, 236, 0.5);
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .otp-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .otp-inputs input {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 18px;
+      border: 2px solid #2A9277;
+      border-radius: 8px;
+      outline: none;
+      background: #f9f9f9;
+    }
+
+    .otp-inputs input:focus {
+      border-color: #50AE15;
+      background: #fff;
+    }
+
+    .buttons {
+      margin-bottom: 20px;
+    }
+
+    .verify, .reset {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .verify {
+      background: #D50B0B;
+      color: #fff;
+    }
+
+    .verify:hover {
+      background: #900F0F;
+    }
+
+    .reset {
+      background: #50AE15;
+      color: black;
+    }
+
+    .reset:hover {
+      background: #91D069;
+    }
+
+    .success-message {
+      color: #30F725;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>OTP Verification</h1>
+    <h4>Enter the 4 digit OTP sent to your email</h4>
+
+    <div class="otp-inputs">
+      <input type="text" maxlength="1">
+      <input type="text" maxlength="1">
+      <input type="text" maxlength="1">
+      <input type="text" maxlength="1">
+    </div>
+
+    <div class="buttons">
+      <button class="verify">Verify OTP</button>
+      <button class="reset">Reset</button>
+    </div>
+
+    <p class="success-message">✅ OTP verified successfully!</p>
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll(".otp-inputs input");
+    const verifyBtn = document.querySelector(".verify");
+    const resetBtn = document.querySelector(".reset");
+    const successMsg = document.querySelector(".success-message");
+
+    // Move to next input on type
+    inputs.forEach((input, index) => {
+      input.addEventListener("input", () => {
+        if (input.value && index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      });
+
+      // Move to previous input on backspace
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && !input.value && index > 0) {
+          inputs[index - 1].focus();
+        }
+      });
+    });
+
+    // Verify OTP
+    verifyBtn.addEventListener("click", () => {
+      let otp = "";
+      inputs.forEach(input => otp += input.value);
+      if (otp.length === 4) {
+        successMsg.style.display = "block";
+      } else {
+        alert("Please enter all 4 digits of the OTP.");
+      }
+    });
+
+    // Reset
+    resetBtn.addEventListener("click", () => {
+      inputs.forEach(input => input.value = "");
+      successMsg.style.display = "none";
+      inputs[0].focus();
+    });
+  </script>
+</body>
+</html>
